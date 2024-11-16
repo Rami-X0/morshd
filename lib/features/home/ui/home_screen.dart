@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:morshd/core/caching/app_shared_pref.dart';
 import 'package:morshd/core/caching/app_shared_pref_key.dart';
 import 'package:morshd/core/widgets/app_scaffold.dart';
+import 'package:morshd/features/home/chat_bot_text/ui/chat_bot_screen_text.dart';
 import 'package:morshd/features/home/ui/widgets/add_tourism_button.dart';
 import 'package:morshd/features/home/ui/widgets/categories_views.dart';
 import 'package:morshd/features/home/ui/widgets/tourism_view.dart';
@@ -31,12 +33,25 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => const ChatBotScreenText()));
+        },
+        backgroundColor: const Color(0xffCEA16E),
+        child: FaIcon(
+          FontAwesomeIcons.robot,
+          color: Colors.white,
+          size: 20.w,
+        ),
+      ),
       statusBarColor: const Color(0xffCEA16E),
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(5.h),
-          child: AppBar(
-            backgroundColor: const Color(0xffCEA16E),
-          )),
+        preferredSize: Size.fromHeight(5.h),
+        child: AppBar(
+          backgroundColor: const Color(0xffCEA16E),
+        ),
+      ),
       body: Column(
         children: [
           Stack(

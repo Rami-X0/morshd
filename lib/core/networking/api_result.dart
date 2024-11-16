@@ -1,5 +1,3 @@
-import 'package:morshd/core/networking/api_error_model.dart';
-
 abstract class ApiResult<T> {
   R when<R>(
       {required R Function(T data) success,
